@@ -1,0 +1,19 @@
+from enum import Enum
+
+class Headings(Enum):
+    VIDEO_ID = 0
+    TITLE = 1
+    PUBLISHED_AT = 2
+    CHANNEL_ID = 3
+    CHANNEL_TITLE = 4
+    CATEGORY_ID = 5
+    TRENDING_DATE = 6
+    TAGS = 7
+    VIEW_COUNT = 8
+    LIKES = 9
+    DISLIKES = 10
+    COMMENT_COUNT = 11
+    THUMBNAIL_LINK = 12
+    COMMENTS_DISABLED = 13
+    RATINGS_DISABLED = 14
+    DESCRIPTION = 15

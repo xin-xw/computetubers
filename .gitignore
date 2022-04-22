@@ -235,3 +235,12 @@ $RECYCLE.BIN/
 *.lnk
 
 # End of https://www.toptal.com/developers/gitignore/api/django,react,macos,windows
+
+__pycache__/
+.DS_STORE
+**/migrations/**
+!**/migrations
+!**/migrations/__init__.py
+db.sqlite3
+US_youtube_trending_data.csv
+env/
