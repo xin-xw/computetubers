@@ -30,5 +30,7 @@ urlpatterns = [
 
     path('update/', UpdateVideo.as_view(), name='update_video'),
 
-    path('delete/', DeleteVideo.as_view(), name='update_video')
+    path('delete/', DeleteVideo.as_view(), name='update_video'),
+
+    path('insert/', InsertVideo.as_view(), name='insert_video'),
 ]

@@ -44,7 +44,6 @@ class ViewVideo(generics.ListCreateAPIView):
 
 # update/?view_id=<videoId>
 
-
 class UpdateVideo(generics.ListAPIView):
     serializer_class = VideoSerializer
 
@@ -112,3 +111,70 @@ class DeleteVideo(generics.ListAPIView):
         Videos.objects.filter(videoId=video_id).delete()
 
         return
+
+class InsertVideo(generics.ListAPIView):
+    serializer_class = VideoSerializer
+
+    def get_queryset(self, *args, **kwargs):
+        updated_values = {}
+
+        video_title = self.request.query_params.get('video_title')
+        if video_title:
+            updated_values['title'] = video_title
+
+        channel_title = self.request.query_params.get('channel_title')
+        if channel_title:
+            updated_values['channelTitle'] = channel_title
+
+        view_count = self.request.query_params.get('view_count')
+        if view_count:
+            updated_values['viewCount'] = view_count
+
+        trending_date = self.request.query_params.get('trending_date')
+        if trending_date:
+            updated_values['trendingDate'] = trending_date
+
+        video_likes = self.request.query_params.get('video_likes')
+        if video_likes:
+            updated_values['likes'] = video_likes
+
+        video_dislikes = self.request.query_params.get('video_dislikes')
+        if video_dislikes:
+            updated_values['dislikes'] = video_dislikes
+
+        comment_count = self.request.query_params.get('comment_count')
+        if comment_count:
+            updated_values['commentCount'] = comment_count
+
+        video = Videos(title=video_title, 
+        publishedAt="",
+        channelTitle = channel_title,
+        categoryId = 0,
+        trendingDate = trending_date,
+        tags = "",
+        viewCount = view_count,
+        likes = video_likes,
+        dislikes = video_dislikes,
+        commentCount = comment_count,
+        thumbnailLink = "",
+        commentsDisabled = False,
+        ratingsDisabled = False,
+        description = "")
+        video.save()
+        # updated_obj = []
+        # for obj in query_set:
+        #     for key, value in updated_values.items():
+        #         setattr(obj, key, value)
+        #     # obj = Videos.objects.update_or_create(
+        #     #     videoId=video_id, title=video_title)
+        #     obj.save()
+        #     updated_obj.append(obj)
+
+        # print(updated_values)
+        print("Inserted video successfully ", video_title)
+        # for key, value in updated_values.items():
+        # setattr(grab_video, key, value)
+        obj = []
+        obj.append(video)
+        # grab_video.save()
+        return obj
