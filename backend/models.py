@@ -3,7 +3,7 @@ from django.db import models
 # Create your models here.
 
 class Videos(models.Model):
-    videoId = models.CharField(max_length=50)
+    videoId = models.CharField(max_length=50, primary_key=True)
     title = models.CharField(max_length=500)
     publishedAt = models.CharField(max_length=50)
     channelId = models.CharField(max_length=50)
