@@ -16,10 +16,11 @@ import {
   ModalCloseButton,
   useDisclosure,
 } from "@chakra-ui/react";
+import axios from "axios";
 
 import { React, useState } from "react";
 
-export default function SearchUpdate() {
+export default function SearchUpdate(video_id) {
   const [updateVideoTitle, setUpdateVideoTitle] = useState("");
   const [updateChannelTitle, setUpdateChannelTitle] = useState("");
   const [updateViews, setUpdateViews] = useState(0);
@@ -27,9 +28,32 @@ export default function SearchUpdate() {
   const [updateLikes, setUpdateLikes] = useState(0);
   const [updateDislikes, setUpdateDislikes] = useState(0);
   const [updateCommentCount, setUpdateCommentCount] = useState(0);
+  const [successfulUpdate, setSuccessfulUpdate] = useState(false);
 
   function handleFormSubmit() {
-    console.log("what the");
+    console.log("what the", video_id["videoId"]);
+    const backend_update_url = "http://127.0.0.1:8000/update/";
+    var params = new URLSearchParams();
+    params.append("video_id", video_id["videoId"]);
+    params.append("video_title", updateVideoTitle);
+    params.append("channel_title", updateChannelTitle);
+    params.append("view_count", updateViews);
+    params.append("trending_date", updateDate);
+    params.append("video_likes", updateLikes);
+    params.append("video_dislikes", updateDislikes);
+    params.append("comment_count", updateCommentCount);
+
+    var request = {
+      params: params,
+    };
+
+    axios.get(backend_update_url, request).then(function (response) {
+      let result = response.data;
+      console.log("updated", result);
+      if (result) {
+        setSuccessfulUpdate(true);
+      }
+    });
   }
 
   const { isOpen, onOpen, onClose } = useDisclosure();
@@ -126,6 +150,9 @@ export default function SearchUpdate() {
             </ModalBody>
 
             <ModalFooter>
+              {successfulUpdate
+                ? "Video has been updated successfully! Try searching it again."
+                : ""}
               <Button
                 variant="solid"
                 colorScheme="blue"

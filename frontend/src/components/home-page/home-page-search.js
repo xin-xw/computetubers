@@ -19,6 +19,7 @@ import { React, useState, useEffect } from "react";
 
 const HomePageSearchResults = ({
   key,
+  video_id,
   video_title,
   channel_title,
   video_likes,
@@ -57,6 +58,7 @@ const HomePageSearchResults = ({
                 <Text fontWeight="bold" fontSize="md">
                   Video: {video_title}
                 </Text>
+                <Text>{video_id}</Text>
                 {<Text>Channel: {channel_title}</Text>}
                 <Text>Views: {video_view_count}</Text>
                 <Text>Date trending: {video_trending_date}</Text>
@@ -67,7 +69,7 @@ const HomePageSearchResults = ({
             </VStack>
           </HStack>
           <HStack>
-            <SearchUpdate></SearchUpdate>
+            <SearchUpdate videoId={video_id}></SearchUpdate>
           </HStack>
         </Box>
       </Box>
@@ -146,6 +148,7 @@ export default function HomePageSearch() {
               searchResults.map((info) => (
                 <HomePageSearchResults
                   key={info.id}
+                  video_id={info.videoId}
                   video_title={info.title}
                   channel_title={info.channelTitle}
                   video_likes={info.likes}
