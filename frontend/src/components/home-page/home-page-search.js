@@ -56,7 +56,7 @@ const HomePageSearchResults = ({
                 <Text fontWeight="bold" fontSize="md">
                   Video: {video_title}
                 </Text>
-                {<Text>Channel:{channel_title}</Text>}
+                {<Text>Channel: {channel_title}</Text>}
                 <Text>Views: {video_view_count}</Text>
                 <Text>Date trending: {video_trending_date}</Text>
                 <Text>Likes: {video_likes}</Text>
@@ -136,8 +136,11 @@ export default function HomePageSearch() {
           </Text>
 
           <Box>
-            {searchResults &&
-              searchResults.map((info) => (
+            {searchResults.length === 0 ? 
+            <Text>
+              No results returned from search.
+            </Text>
+            : searchResults.map((info) => (
                 <HomePageSearchResults
                   key={info.id}
                   video_title={info.title}

@@ -244,3 +244,5 @@ __pycache__/
 db.sqlite3
 US_youtube_trending_data.csv
 env/
+bin/
+pyvenv.cfg*
