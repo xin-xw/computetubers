@@ -28,5 +28,7 @@ urlpatterns = [
     # search/?title=titleOfVideoHere
     path('search/', ViewVideo.as_view(), name='view_video'),
 
-    path('update/', UpdateVideo.as_view(), name='update_video')
+    path('update/', UpdateVideo.as_view(), name='update_video'),
+
+    path('delete/', DeleteVideo.as_view(), name='update_video')
 ]

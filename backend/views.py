@@ -103,3 +103,12 @@ class UpdateVideo(generics.ListAPIView):
 
         # grab_video.save()
         return updated_obj
+
+class DeleteVideo(generics.ListAPIView):
+    serializer_class = VideoSerializer
+
+    def get_queryset(self, *args, **kwargs):
+        video_id = self.request.query_params.get('video_id')
+        Videos.objects.filter(videoId=video_id).delete()
+
+        return

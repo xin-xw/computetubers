@@ -15,6 +15,7 @@ import {
   Box,
 } from "@chakra-ui/react";
 import SearchUpdate from "./modal/search-update";
+import SearchDelete from "./modal/search-delete";
 import { React, useState, useEffect } from "react";
 
 const HomePageSearchResults = ({
@@ -70,6 +71,7 @@ const HomePageSearchResults = ({
           </HStack>
           <HStack>
             <SearchUpdate videoId={video_id}></SearchUpdate>
+            <SearchDelete videoId={video_id}></SearchDelete>
           </HStack>
         </Box>
       </Box>
