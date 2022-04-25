@@ -19,11 +19,18 @@ from backend.views import *
 
 urlpatterns = [
     path('admin/', admin.site.urls),
-    path("", front, name="front"), # This is the front function in views.py in backend
+    # This is the front function in views.py in backend
+    path("", front, name="front"),
 
     # videos/?search=searchTextHere
     path('videos/', VideoListView.as_view(), name='videos_list'),
-    
+
     # search/?title=titleOfVideoHere
-    path('search/', ViewVideo.as_view(), name='view_video')
+    path('search/', ViewVideo.as_view(), name='view_video'),
+
+    path('update/', UpdateVideo.as_view(), name='update_video'),
+
+    path('delete/', DeleteVideo.as_view(), name='update_video'),
+
+    path('insert/', InsertVideo.as_view(), name='insert_video'),
 ]

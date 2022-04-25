@@ -14,10 +14,13 @@ import {
   ListItem,
   Box,
 } from "@chakra-ui/react";
+import SearchUpdate from "./modal/search-update";
+import SearchDelete from "./modal/search-delete";
 import { React, useState, useEffect } from "react";
 
 const HomePageSearchResults = ({
   key,
+  video_id,
   video_title,
   channel_title,
   video_likes,
@@ -56,14 +59,19 @@ const HomePageSearchResults = ({
                 <Text fontWeight="bold" fontSize="md">
                   Video: {video_title}
                 </Text>
+                <Text>{video_id}</Text>
                 {<Text>Channel: {channel_title}</Text>}
                 <Text>Views: {video_view_count}</Text>
                 <Text>Date trending: {video_trending_date}</Text>
                 <Text>Likes: {video_likes}</Text>
-              <Text>Dislikes: {video_dislikes}</Text>
-              <Text>Comments: {video_comment_count}</Text>
+                <Text>Dislikes: {video_dislikes}</Text>
+                <Text>Comments: {video_comment_count}</Text>
               </Box>
             </VStack>
+          </HStack>
+          <HStack>
+            <SearchUpdate videoId={video_id}></SearchUpdate>
+            <SearchDelete videoId={video_id}></SearchDelete>
           </HStack>
         </Box>
       </Box>
@@ -136,13 +144,13 @@ export default function HomePageSearch() {
           </Text>
 
           <Box>
-            {searchResults.length === 0 ? 
-            <Text>
-              No results returned from search.
-            </Text>
-            : searchResults.map((info) => (
+            {searchResults.length === 0 ? (
+              <Text>No results returned from search.</Text>
+            ) : (
+              searchResults.map((info) => (
                 <HomePageSearchResults
                   key={info.id}
+                  video_id={info.videoId}
                   video_title={info.title}
                   channel_title={info.channelTitle}
                   video_likes={info.likes}
@@ -152,7 +160,8 @@ export default function HomePageSearch() {
                   video_thumbnail={info.thumbnailLink}
                   video_comment_count={info.commentCount}
                 ></HomePageSearchResults>
-              ))}
+              ))
+            )}
           </Box>
         </VStack>
       </Stack>
