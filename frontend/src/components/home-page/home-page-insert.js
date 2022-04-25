@@ -30,6 +30,11 @@ import {
     const [insertDislikes, setInsertDislikes] = useState(0);
     const [insertCommentCount, setInsertCommentCount] = useState(0);
     const [successfulInsert, setSuccessfulInsert] = useState(false);
+
+    const isError = (insertVideoTitle === '' || insertChannelTitle === ''
+    || insertViews === 0 || insertDate === ''
+    || insertLikes === 0 || insertDislikes === 0
+    || insertCommentCount === 0)
   
     function handleFormSubmit() {
         const backend_insert_url = "http://127.0.0.1:8000/insert/";
@@ -68,7 +73,7 @@ import {
                 <ModalCloseButton />
                 <ModalBody>
                   <FormControl>
-                    <FormControl>
+                    <FormControl isRequired>
                       <FormLabel htmlFor="video_title">Video</FormLabel>
                       <Input
                         id="video_title"
@@ -157,6 +162,7 @@ import {
                     colorScheme="blue"
                     mx={5}
                     onClick={handleFormSubmit}
+                    disabled={isError}
                   >
                     Submit
                   </Button>

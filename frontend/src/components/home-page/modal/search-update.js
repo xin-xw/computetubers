@@ -30,6 +30,11 @@ export default function SearchUpdate(video_id) {
   const [updateCommentCount, setUpdateCommentCount] = useState(0);
   const [successfulUpdate, setSuccessfulUpdate] = useState(false);
 
+  const isError = (updateVideoTitle === '' || updateChannelTitle === ''
+  || updateViews === 0 || updateDate === ''
+  || updateLikes === 0 || updateDislikes === 0
+  || updateCommentCount === 0)
+
   function handleFormSubmit() {
     console.log("what the", video_id["videoId"]);
     const backend_update_url = "http://127.0.0.1:8000/update/";
@@ -68,8 +73,8 @@ export default function SearchUpdate(video_id) {
             <ModalHeader>Update video fields</ModalHeader>
             <ModalCloseButton />
             <ModalBody>
-              <FormControl>
-                <FormControl>
+              <FormControl isRequired>
+                <FormControl isRequired>
                   <FormLabel htmlFor="video_title">Video</FormLabel>
                   <Input
                     id="video_title"
@@ -158,6 +163,7 @@ export default function SearchUpdate(video_id) {
                 colorScheme="blue"
                 mx={5}
                 onClick={handleFormSubmit}
+                disabled={isError}
               >
                 Submit
               </Button>
