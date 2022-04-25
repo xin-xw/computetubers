@@ -14,6 +14,7 @@ import {
   ListItem,
   Box,
 } from "@chakra-ui/react";
+import SearchUpdate from "./modal/search-update";
 import { React, useState, useEffect } from "react";
 
 const HomePageSearchResults = ({
@@ -60,10 +61,13 @@ const HomePageSearchResults = ({
                 <Text>Views: {video_view_count}</Text>
                 <Text>Date trending: {video_trending_date}</Text>
                 <Text>Likes: {video_likes}</Text>
-              <Text>Dislikes: {video_dislikes}</Text>
-              <Text>Comments: {video_comment_count}</Text>
+                <Text>Dislikes: {video_dislikes}</Text>
+                <Text>Comments: {video_comment_count}</Text>
               </Box>
             </VStack>
+          </HStack>
+          <HStack>
+            <SearchUpdate></SearchUpdate>
           </HStack>
         </Box>
       </Box>
@@ -136,11 +140,10 @@ export default function HomePageSearch() {
           </Text>
 
           <Box>
-            {searchResults.length === 0 ? 
-            <Text>
-              No results returned from search.
-            </Text>
-            : searchResults.map((info) => (
+            {searchResults.length === 0 ? (
+              <Text>No results returned from search.</Text>
+            ) : (
+              searchResults.map((info) => (
                 <HomePageSearchResults
                   key={info.id}
                   video_title={info.title}
@@ -152,7 +155,8 @@ export default function HomePageSearch() {
                   video_thumbnail={info.thumbnailLink}
                   video_comment_count={info.commentCount}
                 ></HomePageSearchResults>
-              ))}
+              ))
+            )}
           </Box>
         </VStack>
       </Stack>
