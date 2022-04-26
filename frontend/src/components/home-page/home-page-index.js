@@ -1,27 +1,22 @@
-import { Stack, HStack, Heading, Flex, Box } from "@chakra-ui/react";
+import { Stack, HStack, Heading, Flex, Box, Center } from "@chakra-ui/react";
 import HomePageSearch from "./home-page-search";
 import React from "react";
 import HomePageSearchResults from "./home-page-search-results";
 import HomePageInsert from "./home-page-insert";
+import HomePageNavBar from "./home-page-nav-bar";
 
 export default function HomePageIndex() {
   return (
     <Flex>
       <Stack>
-        <Box my={1}>
-          <Heading fontSize="5xl" fontWeight="bold">
-            ComputeTubers
-          </Heading>
+        <Box mt={30}>
+          <HomePageNavBar></HomePageNavBar>
         </Box>
-          <Box my={1}>
-            <HStack my={3}>
-              <Heading fontSize="3xl" fontWeight="bold">
-                Search for related video titles
-              </Heading>
-              <HomePageInsert></HomePageInsert>
-            </HStack>
+        <Box my={1}>
+          <Center>
             <HomePageSearch></HomePageSearch>
-          </Box>
+          </Center>
+        </Box>
       </Stack>
     </Flex>
   );
