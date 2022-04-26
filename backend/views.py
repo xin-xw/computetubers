@@ -1,7 +1,7 @@
 from turtle import update
 from django.shortcuts import render
 
-
+from django.template import Context, Template
 from rest_framework.decorators import api_view
 from rest_framework.response import Response
 from rest_framework import status
@@ -43,6 +43,7 @@ class ViewVideo(generics.ListCreateAPIView):
         return query_set[:10]
 
 # update/?view_id=<videoId>
+
 
 class UpdateVideo(generics.ListAPIView):
     serializer_class = VideoSerializer
@@ -96,12 +97,13 @@ class UpdateVideo(generics.ListAPIView):
             updated_obj.append(obj)
 
         print(updated_values)
-        print("Successful")
+
         # for key, value in updated_values.items():
         # setattr(grab_video, key, value)
 
         # grab_video.save()
         return updated_obj
+
 
 class DeleteVideo(generics.ListAPIView):
     serializer_class = VideoSerializer
@@ -111,6 +113,7 @@ class DeleteVideo(generics.ListAPIView):
         Videos.objects.filter(videoId=video_id).delete()
 
         return
+
 
 class InsertVideo(generics.ListAPIView):
     serializer_class = VideoSerializer
@@ -146,20 +149,20 @@ class InsertVideo(generics.ListAPIView):
         if comment_count:
             updated_values['commentCount'] = comment_count
 
-        video = Videos(title=video_title, 
-        publishedAt="",
-        channelTitle = channel_title,
-        categoryId = 0,
-        trendingDate = trending_date,
-        tags = "",
-        viewCount = view_count,
-        likes = video_likes,
-        dislikes = video_dislikes,
-        commentCount = comment_count,
-        thumbnailLink = "",
-        commentsDisabled = False,
-        ratingsDisabled = False,
-        description = "")
+        video = Videos(title=video_title,
+                       publishedAt="",
+                       channelTitle=channel_title,
+                       categoryId=0,
+                       trendingDate=trending_date,
+                       tags="",
+                       viewCount=view_count,
+                       likes=video_likes,
+                       dislikes=video_dislikes,
+                       commentCount=comment_count,
+                       thumbnailLink="",
+                       commentsDisabled=False,
+                       ratingsDisabled=False,
+                       description="")
         video.save()
         # updated_obj = []
         # for obj in query_set:

@@ -1,16 +1,20 @@
 from django.db import models
 from uuid import uuid4
 
+
 def generateUUID():
     return str(uuid4())
 
 # Create your models here.
 
+
 class Videos(models.Model):
-    videoId = models.CharField(max_length=50, primary_key = True, default = generateUUID)
+    videoId = models.CharField(
+        max_length=50, primary_key=True, default=generateUUID)
     title = models.CharField(max_length=500)
     publishedAt = models.CharField(max_length=50)
-    channelId = models.CharField(max_length=50, default = generateUUID)
+    channelId = models.CharField(
+        max_length=50, default=generateUUID)
     channelTitle = models.CharField(max_length=50)
     categoryId = models.IntegerField()
     trendingDate = models.CharField(max_length=50)
@@ -26,3 +30,7 @@ class Videos(models.Model):
 
     def __str__(self):
         return self.videoId
+
+    def save(self, *args, **kwargs):
+        self.videoId = None
+        return super().save(*args, **kwargs)
