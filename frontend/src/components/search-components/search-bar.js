@@ -19,7 +19,7 @@ import {
   WrapItem,
   useMediaQuery,
 } from "@chakra-ui/react";
-import HomePageSearchResults from "./home-page-search-results";
+import HomePageSearchResults from "./search-results";
 import SearchUpdate from "./modal/search-update";
 import SearchDelete from "./modal/search-delete";
 import { React, useState, useEffect } from "react";
@@ -85,7 +85,7 @@ import { React, useState, useEffect } from "react";
 //   );
 // };
 
-export default function HomePageSearch() {
+export default function SearchBar() {
   const axios = require("axios");
   const [searchValue, setSearchValue] = useState("");
   const [searchResults, setSearchResults] = useState([]);
