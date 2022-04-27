@@ -11,8 +11,13 @@ import {
   List,
   Spacer,
   Image,
+  Grid,
   ListItem,
   Box,
+  GridItem,
+  Wrap,
+  WrapItem,
+  useMediaQuery,
 } from "@chakra-ui/react";
 import HomePageSearchResults from "./home-page-search-results";
 import SearchUpdate from "./modal/search-update";
@@ -87,6 +92,12 @@ export default function HomePageSearch() {
 
   const handleChange = (e) => setSearchValue(e.target.value);
 
+  const handleKeyDown = (event) => {
+    if (event.key === "Enter") {
+      handleSearch(searchResults);
+    }
+  };
+
   function handleSearch() {
     axios
       .get("http://127.0.0.1:8000/search/?video_title=" + searchValue)
@@ -127,39 +138,49 @@ export default function HomePageSearch() {
   return (
     <Flex>
       <Stack>
-        <HStack my={3}>
-          <Input
-            variant={"outline"}
-            value={searchValue}
-            onChange={handleChange}
-            size="lg"
-            width={"500px"}
-          />
-          <Button onClick={handleSearch} colorScheme="blue">
-            Search
-          </Button>
-        </HStack>
+        <Box>
+          <Heading size="md">Search</Heading>
+        </Box>
 
-        <VStack>
-          <Box>
+        <Box w={["300px", "750px"]}>
+          <HStack>
+            <Input
+              variant={"flushed"}
+              value={searchValue}
+              onChange={handleChange}
+              size="sm"
+              placeholder={"type a keyword"}
+              onKeyDown={handleKeyDown}
+              isFullWidth
+            />
+            <Button size="sm" onClick={handleSearch} colorScheme="blue">
+              Go
+            </Button>
+          </HStack>
+        </Box>
+
+        <Box w={["300px", "750px"]}>
+          <Wrap spacingX={"100px"} justify={"center"}>
             {searchResults.length === 0
               ? ""
               : searchResults.map((info) => (
-                  <HomePageSearchResults
-                    key={info.id}
-                    video_id={info.videoId}
-                    video_title={info.title}
-                    channel_title={info.channelTitle}
-                    video_likes={info.likes}
-                    video_dislikes={info.dislikes}
-                    video_view_count={info.viewCount}
-                    video_trending_date={info.trendingDate}
-                    video_thumbnail={info.thumbnailLink}
-                    video_comment_count={info.commentCount}
-                  ></HomePageSearchResults>
+                  <WrapItem>
+                    <HomePageSearchResults
+                      key={info.id}
+                      video_id={info.videoId}
+                      video_title={info.title}
+                      channel_title={info.channelTitle}
+                      video_likes={info.likes}
+                      video_dislikes={info.dislikes}
+                      video_view_count={info.viewCount}
+                      video_trending_date={info.trendingDate}
+                      video_thumbnail={info.thumbnailLink}
+                      video_comment_count={info.commentCount}
+                    ></HomePageSearchResults>
+                  </WrapItem>
                 ))}
-          </Box>
-        </VStack>
+          </Wrap>
+        </Box>
       </Stack>
     </Flex>
   );

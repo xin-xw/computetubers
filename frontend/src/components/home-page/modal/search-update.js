@@ -30,16 +30,20 @@ export default function SearchUpdate(video_id) {
   const [updateCommentCount, setUpdateCommentCount] = useState(0);
   const [successfulUpdate, setSuccessfulUpdate] = useState(false);
 
-  const isError = (updateVideoTitle === '' || updateChannelTitle === ''
-  || updateViews === 0 || updateDate === ''
-  || updateLikes === 0 || updateDislikes === 0
-  || updateCommentCount === 0)
+  const isError =
+    updateVideoTitle === "" ||
+    updateChannelTitle === "" ||
+    updateViews === 0 ||
+    updateDate === "" ||
+    updateLikes === 0 ||
+    updateDislikes === 0 ||
+    updateCommentCount === 0;
 
   function handleFormSubmit() {
-    console.log("what the", video_id["videoId"]);
+    console.log("what the", video_id["video_id"]);
     const backend_update_url = "http://127.0.0.1:8000/update/";
     var params = new URLSearchParams();
-    params.append("video_id", video_id["videoId"]);
+    params.append("video_id", video_id["video_id"]);
     params.append("video_title", updateVideoTitle);
     params.append("channel_title", updateChannelTitle);
     params.append("view_count", updateViews);
@@ -64,116 +68,116 @@ export default function SearchUpdate(video_id) {
   const { isOpen, onOpen, onClose } = useDisclosure();
   return (
     <>
-      <Box mt={3}>
-        <Button onClick={onOpen}>Update</Button>
+      <Button size="sm" variant="outline" fontSize={"sm"} onClick={onOpen}>
+        Update Metadata
+      </Button>
 
-        <Modal isOpen={isOpen} onClose={onClose}>
-          <ModalOverlay />
-          <ModalContent>
-            <ModalHeader>Update video fields</ModalHeader>
-            <ModalCloseButton />
-            <ModalBody>
+      <Modal isOpen={isOpen} onClose={onClose}>
+        <ModalOverlay />
+        <ModalContent>
+          <ModalHeader>Update video fields</ModalHeader>
+          <ModalCloseButton />
+          <ModalBody>
+            <FormControl isRequired>
               <FormControl isRequired>
-                <FormControl isRequired>
-                  <FormLabel htmlFor="video_title">Video</FormLabel>
-                  <Input
-                    id="video_title"
-                    type="text"
-                    onChange={(ev) => {
-                      setUpdateVideoTitle(ev.target.value);
-                      console.log("new video title:", updateVideoTitle);
-                    }}
-                  ></Input>
+                <FormLabel htmlFor="video_title">Video</FormLabel>
+                <Input
+                  id="video_title"
+                  type="text"
+                  onChange={(ev) => {
+                    setUpdateVideoTitle(ev.target.value);
+                    console.log("new video title:", updateVideoTitle);
+                  }}
+                ></Input>
 
-                  <FormLabel htmlFor="channel_title">Channel</FormLabel>
-                  <Input
-                    id="channel_title"
-                    type="text"
-                    onChange={(ev) => {
-                      console.log(ev.target.value);
-                      setUpdateChannelTitle(ev.target.value);
-                      console.log("new channel title:", updateChannelTitle);
-                    }}
-                  ></Input>
+                <FormLabel htmlFor="channel_title">Channel</FormLabel>
+                <Input
+                  id="channel_title"
+                  type="text"
+                  onChange={(ev) => {
+                    console.log(ev.target.value);
+                    setUpdateChannelTitle(ev.target.value);
+                    console.log("new channel title:", updateChannelTitle);
+                  }}
+                ></Input>
 
-                  <FormLabel htmlFor="views">Views</FormLabel>
-                  <Input
-                    id="views"
-                    type="number"
-                    onChange={(ev) => {
-                      console.log(ev.target.value);
-                      setUpdateViews(ev.target.value);
-                      console.log("new views:", updateViews);
-                    }}
-                  ></Input>
+                <FormLabel htmlFor="views">Views</FormLabel>
+                <Input
+                  id="views"
+                  type="number"
+                  onChange={(ev) => {
+                    console.log(ev.target.value);
+                    setUpdateViews(ev.target.value);
+                    console.log("new views:", updateViews);
+                  }}
+                ></Input>
 
-                  <FormLabel htmlFor="dateTrending">Date Trending</FormLabel>
-                  <Input
-                    id="dateTrending"
-                    type="text"
-                    onChange={(ev) => {
-                      console.log(ev.target.value);
-                      setUpdateDate(ev.target.value);
-                      console.log("new date:", updateDate);
-                    }}
-                  ></Input>
+                <FormLabel htmlFor="dateTrending">Date Trending</FormLabel>
+                <Input
+                  id="dateTrending"
+                  type="text"
+                  onChange={(ev) => {
+                    console.log(ev.target.value);
+                    setUpdateDate(ev.target.value);
+                    console.log("new date:", updateDate);
+                  }}
+                ></Input>
 
-                  <FormLabel htmlFor="likes">Likes</FormLabel>
-                  <Input
-                    id="likes"
-                    type="number"
-                    onChange={(ev) => {
-                      console.log(ev.target.value);
-                      setUpdateLikes(ev.target.value);
-                      console.log("new likes:", updateLikes);
-                    }}
-                  ></Input>
+                <FormLabel htmlFor="likes">Likes</FormLabel>
+                <Input
+                  id="likes"
+                  type="number"
+                  onChange={(ev) => {
+                    console.log(ev.target.value);
+                    setUpdateLikes(ev.target.value);
+                    console.log("new likes:", updateLikes);
+                  }}
+                ></Input>
 
-                  <FormLabel htmlFor="dislikes">Dislikes</FormLabel>
-                  <Input
-                    id="dislikes"
-                    type="number"
-                    onChange={(ev) => {
-                      console.log(ev.target.value);
-                      setUpdateDislikes(ev.target.value);
-                      console.log("new dislikes:", updateDislikes);
-                    }}
-                  ></Input>
+                <FormLabel htmlFor="dislikes">Dislikes</FormLabel>
+                <Input
+                  id="dislikes"
+                  type="number"
+                  onChange={(ev) => {
+                    console.log(ev.target.value);
+                    setUpdateDislikes(ev.target.value);
+                    console.log("new dislikes:", updateDislikes);
+                  }}
+                ></Input>
 
-                  <FormLabel htmlFor="videoId">Comments</FormLabel>
-                  <Input
-                    id="comments"
-                    type="number"
-                    onChange={(ev) => {
-                      console.log(ev.target.value);
-                      setUpdateCommentCount(ev.target.value);
-                      console.log("new comment count:", updateCommentCount);
-                    }}
-                  ></Input>
-                </FormControl>
+                <FormLabel htmlFor="videoId">Number of Comments</FormLabel>
+                <Input
+                  id="comments"
+                  type="number"
+                  onChange={(ev) => {
+                    console.log(ev.target.value);
+                    setUpdateCommentCount(ev.target.value);
+                    console.log("new comment count:", updateCommentCount);
+                  }}
+                ></Input>
               </FormControl>
-            </ModalBody>
+            </FormControl>
+          </ModalBody>
 
-            <ModalFooter>
-              {successfulUpdate
-                ? "Video has been updated successfully! Try searching it again."
-                : ""}
-              <Button
-                variant="solid"
-                colorScheme="blue"
-                mx={5}
-                onClick={handleFormSubmit}
-                disabled={isError}
-              >
-                Submit
-              </Button>
-              <Button variant="outline" mr={3} onClick={onClose}>
-                Close
-              </Button>
-            </ModalFooter>
-          </ModalContent>
-        </Modal>
-      </Box>
+          <ModalFooter>
+            {successfulUpdate
+              ? "Video has been updated successfully! Try searching it again."
+              : ""}
+            <Button
+              variant="solid"
+              colorScheme="blue"
+              mx={5}
+              onClick={handleFormSubmit}
+              disabled={isError}
+            >
+              Update
+            </Button>
+            <Button variant="outline" mr={3} onClick={onClose}>
+              Close
+            </Button>
+          </ModalFooter>
+        </ModalContent>
+      </Modal>
     </>
   );
 }
