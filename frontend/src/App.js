@@ -1,7 +1,7 @@
 import React from "react";
 
 // Chakra
-import { ChakraProvider, Center, theme } from "@chakra-ui/react";
+import { ChakraProvider, Center } from "@chakra-ui/react";
 import { ColorModeSwitcher } from "./ColorModeSwitcher";
 import { BrowserRouter, Routes, Route } from "react-router-dom";
 import Container from "./components/container";
@@ -9,6 +9,7 @@ import HomePageIndex from "./components/home-page/home-page-index";
 import HomePageNavBar from "./components/home-page/home-page-nav";
 import SearchIndex from "./routes/search";
 import InsertIndex from "./routes/insert";
+import theme from "./theme";
 
 function App() {
   return (

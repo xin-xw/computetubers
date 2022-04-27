@@ -77,7 +77,7 @@ export default function SearchUpdate(video_id) {
         <ModalContent>
           <ModalHeader>Update video fields</ModalHeader>
           <ModalCloseButton />
-          <ModalBody>
+          <ModalBody mt={-3}>
             <FormControl isRequired>
               <FormControl isRequired>
                 <FormLabel htmlFor="video_title">Video</FormLabel>
@@ -145,7 +145,7 @@ export default function SearchUpdate(video_id) {
                   }}
                 ></Input>
 
-                <FormLabel htmlFor="videoId">Number of Comments</FormLabel>
+                <FormLabel htmlFor="videoId">Number of comments</FormLabel>
                 <Input
                   id="comments"
                   type="number"

@@ -98,8 +98,8 @@ export default function HomePageNavBar() {
                   mx={"5"}
                   icon={colorMode === "dark" ? <SunIcon /> : <MoonIcon />}
                   onClick={toggleColorMode}
-                  borderRadius="sm"
-                  variant="outline"
+                  borderRadius="md"
+                  // variant="outline"
                 />
                 <MenuButton
                   as={Button}

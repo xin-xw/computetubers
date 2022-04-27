@@ -1,14 +1,16 @@
 import { Stack, HStack, Heading, Flex, Box, Center } from "@chakra-ui/react";
-import HomePageSearch from "../search-components/search-bar";
 import React from "react";
-import HomePageNavBar from "./home-page-nav";
+import AboutUs from "./home-page-about-us";
 
 export default function HomePageIndex() {
   return (
     <Flex>
       <Stack>
         <Box mt={15}>
-          <Heading size={"md"}>Home</Heading>
+          <Heading size={"lg"}>Home</Heading>
+        </Box>
+        <Box>
+          <AboutUs></AboutUs>
         </Box>
       </Stack>
     </Flex>

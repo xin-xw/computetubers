@@ -138,10 +138,6 @@ export default function SearchBar() {
   return (
     <Flex>
       <Stack>
-        <Box>
-          <Heading size="md">Search</Heading>
-        </Box>
-
         <Box w={["300px", "750px"]}>
           <HStack>
             <Input
@@ -149,7 +145,7 @@ export default function SearchBar() {
               value={searchValue}
               onChange={handleChange}
               size="sm"
-              placeholder={"type a keyword"}
+              placeholder={"Try typing a keyword"}
               onKeyDown={handleKeyDown}
               isFullWidth
             />

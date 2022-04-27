@@ -157,7 +157,7 @@ export default function HomePageSearchResults({
           <Heading
             fontSize={"md"}
             fontFamily={"body"}
-            fontWeight={500}
+            fontWeight={"bold"}
             textAlign={"center"}
           >
             {video_title}
