@@ -144,12 +144,12 @@ export default function SearchBar() {
               variant={"flushed"}
               value={searchValue}
               onChange={handleChange}
-              size="sm"
+              size="md"
               placeholder={"Try typing a keyword"}
               onKeyDown={handleKeyDown}
               isFullWidth
             />
-            <Button size="sm" onClick={handleSearch} colorScheme="blue">
+            <Button size="md" onClick={handleSearch} colorScheme="blue">
               Go
             </Button>
           </HStack>

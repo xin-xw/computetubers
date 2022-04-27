@@ -164,9 +164,8 @@ export default function HomePageSearchResults({
           </Heading>
 
           <Stack direction={"row"} align={"center"} my={"3px"}>
-            <Text fontSize={"sm"}>
-              {channel_title} {" • "}
-            </Text>
+            <Text fontSize={"sm"}>{channel_title}</Text>
+            <Text fontSize={"xs"}>{" • "}</Text>
             <Text fontSize={"sm"}>{video_view_count} views</Text>
           </Stack>
           <Text fontSize={"sm"}>
