@@ -42,7 +42,11 @@ export default function HomePageNavBar() {
               <Box>
                 <Image
                   w={"110px"}
-                  src={"media/computetubers_logo.png"}
+                  src={
+                    colorMode === "dark"
+                      ? "media/computetubers_logo_dark.png"
+                      : "media/computetubers_logo.png"
+                  }
                   alt="logo"
                 ></Image>
               </Box>
