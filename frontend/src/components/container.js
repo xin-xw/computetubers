@@ -3,10 +3,9 @@ import { Box } from "@chakra-ui/react";
 
 export const Container = (props) => (
   <Box
-    w="full"
+    w="fit-content"
     mx="auto"
-    maxW="3xl"
-    minW="3xl"
+    maxW={"900px"}
     px={{ base: "7", md: "8" }}
     // overflow={"auto"}
     {...props}

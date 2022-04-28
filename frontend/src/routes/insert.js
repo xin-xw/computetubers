@@ -1,16 +1,15 @@
 import { Stack, HStack, Heading, Flex, Box, Center } from "@chakra-ui/react";
 import React from "react";
-import AboutUs from "./home-page-about-us";
-
-export default function HomePageIndex() {
+import InsertForm from "../components/insert-page/insert-form";
+export default function InsertIndex() {
   return (
     <Flex>
       <Stack>
         <Box mt={15}>
-          <Heading size={"lg"}>Home</Heading>
+          <Heading size={"lg"}>Insert Video to Database</Heading>
         </Box>
         <Box>
-          <AboutUs></AboutUs>
+          <InsertForm></InsertForm>
         </Box>
       </Stack>
     </Flex>
