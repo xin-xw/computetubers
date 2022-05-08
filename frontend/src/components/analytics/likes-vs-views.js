@@ -70,7 +70,7 @@ export default function BarChart() {
       var data = {
         datasets: [
           {
-            label: "Number of Dislikes (x) vs Number of Views(y)",
+            label: "Number of Likes (x) vs Number of Views(y)",
             data: makeLabels(),
             backgroundColor: 'rgba(255, 99, 132, 1)',
           },
