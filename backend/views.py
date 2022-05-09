@@ -19,13 +19,15 @@ def front(request):
 
 # Search a video
 # videos/?search=searchTextHere
-
+# Can search video by model field
+# videos/?search=searchTextHere&ordering=Videosfield
 
 class VideoListView(generics.ListAPIView):
     queryset = Videos.objects.all()
     serializer_class = VideoSerializer
-    filter_backends = [filters.SearchFilter]
+    filter_backends = [filters.SearchFilter, filters.OrderingFilter]
     search_fields = ['title']
+
 
 
 # Get a video by title
