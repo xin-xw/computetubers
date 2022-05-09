@@ -30,7 +30,7 @@ export default function HomePageNavBar() {
   return (
     <>
       <Center>
-        <Box w={"1000px"} px={4} mb={"15px"}>
+        <Box w={"1500px"} px={4} mb={"15px"}>
           <Flex h={16} alignItems={"center"} justifyContent={"space-between"}>
             <IconButton
               size={"md"}
@@ -147,8 +147,19 @@ export default function HomePageNavBar() {
                 >
                   Capital vs Views
                 </Link>
-
-                
+                <Link
+                  px={2}
+                  py={1}
+                  rounded={"md"}
+                  _hover={{
+                    textDecoration: "none",
+                    bg: useColorModeValue("gray.200", "gray.700"),
+                  }}
+                  as={RouterLink}
+                  to="/other-analytics"
+                >
+                  Other Analytics
+                </Link>
               </HStack>
             </HStack>
             <Flex alignItems={"center"}>
