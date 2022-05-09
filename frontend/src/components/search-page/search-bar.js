@@ -141,7 +141,6 @@ export default function SearchBar() {
         <Box w={["300px", "750px"]}>
           <HStack>
             <Input
-              variant={"flushed"}
               value={searchValue}
               onChange={handleChange}
               size="md"
@@ -156,6 +155,15 @@ export default function SearchBar() {
         </Box>
 
         <Box w={["300px", "750px"]}>
+          <Center>
+            <Box mb={-5} mt={5}>
+              {searchResults.length !== 0 ? (
+                <Heading size="sm">Results related to your keyword</Heading>
+              ) : (
+                ""
+              )}
+            </Box>
+          </Center>
           <Wrap spacingX={"100px"} justify={"center"}>
             {searchResults.length === 0
               ? ""

@@ -8,7 +8,7 @@ export default function HomePageIndex() {
   return (
     <Flex>
       <Stack>
-        <Box mt={15}>
+        <Box mt={15} my={5}>
           <Heading size={"lg"} textAlign='center'>Home</Heading>
         </Box>
         <HomePageTrendingTags></HomePageTrendingTags>

@@ -7,18 +7,11 @@ import {
   FormLabel,
   Box,
   Button,
-  Modal,
-  ModalOverlay,
-  ModalContent,
-  ModalHeader,
-  ModalFooter,
-  ModalBody,
-  ModalCloseButton,
-  useDisclosure,
-  Text,
 } from "@chakra-ui/react";
 import axios from "axios";
 import { React, useState, useEffect } from "react";
+import { ToastContainer, toast } from "react-toastify";
+import "react-toastify/dist/ReactToastify.css";
 
 export default function InsertForm() {
   const axios = require("axios");
@@ -30,6 +23,20 @@ export default function InsertForm() {
   const [insertDislikes, setInsertDislikes] = useState(0);
   const [insertCommentCount, setInsertCommentCount] = useState(0);
   const [successfulInsert, setSuccessfulInsert] = useState(false);
+
+  const success_id = "success";
+
+  const notify = () => {
+    toast.success(
+      "Your video has been inserted successfully into the database! Try searching for the video again.",
+      {
+        icon: "🚀",
+        theme: "colored",
+        toastId: success_id,
+      }
+    );
+    setSuccessfulInsert(false);
+  };
 
   const isError =
     insertVideoTitle === "" ||
@@ -158,12 +165,18 @@ export default function InsertForm() {
           >
             Submit
           </Button>
-
-          <Text>
-            {successfulInsert
-              ? "Video has been inserted successfully! Try searching for the video."
-              : ""}
-          </Text>
+          <Box mt={3}>
+            <ToastContainer
+              position="bottom-center"
+              autoClose={5000}
+              hideProgressBar={false}
+              newestOnTop={false}
+              closeOnClick
+              rtl={false}
+              pauseOnHover
+            />
+            {successfulInsert ? notify() : null}
+          </Box>
         </Box>
       </Stack>
     </Flex>

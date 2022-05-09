@@ -3,11 +3,21 @@ import { createBreakpoints } from "@chakra-ui/theme-tools";
 import { mode } from "@chakra-ui/theme-tools";
 import "@fontsource/ibm-plex-sans";
 
+const styles = {
+  global: (props) => ({
+    body: {
+      bg: mode("#f9f9f9", "#181818")(props),
+      color: mode("black", "white")(props),
+    },
+  }),
+};
+
 const theme = extendTheme({
   config: {
     initialColorMode: "light",
-    useSystemColorMode: true,
+    useSystemColorMode: false,
   },
+
   fonts: {
     heading: "IBM Plex Sans",
     body: "IBM Plex Sans",
@@ -24,6 +34,7 @@ const theme = extendTheme({
     "5xl": "42px",
     "6xl": "48px",
   },
+  styles,
 });
 
 export default theme;

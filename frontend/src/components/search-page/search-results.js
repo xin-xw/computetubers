@@ -128,7 +128,7 @@ export default function HomePageSearchResults({
         p={6}
         maxW={"300px"}
         w={"full"}
-        bg={useColorModeValue("white", "gray.800")}
+        bg={useColorModeValue("white", "gray.900")}
         boxShadow={"lg"}
         rounded={"lg"}
         pos={"relative"}

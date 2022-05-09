@@ -12,6 +12,7 @@ import {
   Image,
   MenuItem,
   MenuDivider,
+  Img,
   useColorMode,
   useDisclosure,
   useColorModeValue,
@@ -40,11 +41,15 @@ export default function HomePageNavBar() {
             />
             <HStack spacing={8} alignItems={"center"}>
               <Box>
-                <Image
+                <Img
                   w={"110px"}
-                  src={"media/computetubers_logo.png"}
+                  src={
+                    colorMode === "dark"
+                      ? "media/computetubers_logo_dark.png"
+                      : "media/computetubers_logo.png"
+                  }
                   alt="logo"
-                ></Image>
+                ></Img>
               </Box>
               <HStack
                 as={"nav"}
