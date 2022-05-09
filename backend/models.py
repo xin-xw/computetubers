@@ -18,6 +18,7 @@ class Videos(models.Model):
     categoryId = models.IntegerField()
     trendingDate = models.CharField(max_length=50)
     tags = models.TextField()
+    numberOfTags = models.IntegerField()
     viewCount = models.IntegerField()
     likes = models.IntegerField()
     dislikes = models.IntegerField()
