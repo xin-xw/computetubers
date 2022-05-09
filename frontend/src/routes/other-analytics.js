@@ -14,6 +14,7 @@ import {
 } from "@chakra-ui/react";
 import { useState, useEffect } from "react";
 import OtherAnalyticsAverageTags from "../components/other-analytics/average-tags";
+import TagsVsViewIndex from "../components/other-analytics/tags-vs-view-index";
 
 function OtherAnalyticsIndex() {
   const { colorMode } = useColorMode();
@@ -30,6 +31,9 @@ function OtherAnalyticsIndex() {
     <Stack>
       <Box>
         <OtherAnalyticsAverageTags></OtherAnalyticsAverageTags>
+      </Box>
+      <Box>
+        <TagsVsViewIndex></TagsVsViewIndex>
       </Box>
     </Stack>
   );

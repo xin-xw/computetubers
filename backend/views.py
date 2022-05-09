@@ -1,6 +1,6 @@
 from turtle import update
 from django.shortcuts import render
-
+from django.http import HttpResponse
 
 from rest_framework.decorators import api_view
 from rest_framework.response import Response
@@ -43,6 +43,7 @@ class ViewVideo(generics.ListCreateAPIView):
         return query_set[:10]
 
 # update/?view_id=<videoId>
+
 
 class UpdateVideo(generics.ListAPIView):
     serializer_class = VideoSerializer
@@ -103,6 +104,7 @@ class UpdateVideo(generics.ListAPIView):
         # grab_video.save()
         return updated_obj
 
+
 class DeleteVideo(generics.ListAPIView):
     serializer_class = VideoSerializer
 
@@ -111,6 +113,7 @@ class DeleteVideo(generics.ListAPIView):
         Videos.objects.filter(videoId=video_id).delete()
 
         return
+
 
 class InsertVideo(generics.ListAPIView):
     serializer_class = VideoSerializer
@@ -146,20 +149,20 @@ class InsertVideo(generics.ListAPIView):
         if comment_count:
             updated_values['commentCount'] = comment_count
 
-        video = Videos(title=video_title, 
-        publishedAt="",
-        channelTitle = channel_title,
-        categoryId = 0,
-        trendingDate = trending_date,
-        tags = "",
-        viewCount = view_count,
-        likes = video_likes,
-        dislikes = video_dislikes,
-        commentCount = comment_count,
-        thumbnailLink = "",
-        commentsDisabled = False,
-        ratingsDisabled = False,
-        description = "")
+        video = Videos(title=video_title,
+                       publishedAt="",
+                       channelTitle=channel_title,
+                       categoryId=0,
+                       trendingDate=trending_date,
+                       tags="",
+                       viewCount=view_count,
+                       likes=video_likes,
+                       dislikes=video_dislikes,
+                       commentCount=comment_count,
+                       thumbnailLink="",
+                       commentsDisabled=False,
+                       ratingsDisabled=False,
+                       description="")
         video.save()
         # updated_obj = []
         # for obj in query_set:
@@ -178,3 +181,28 @@ class InsertVideo(generics.ListAPIView):
         obj.append(video)
         # grab_video.save()
         return obj
+
+
+class AverageNumberOfTags(generics.ListAPIView):
+
+    serializer_class = VideoSerializer
+
+    def get(self, request):
+        queryset = Videos.objects.all()
+
+        all_tags = []
+        filter_backends = [filters.SearchFilter]
+        search_fields = ['tags']
+        num_tags = 0
+        num_obj = 0
+        for obj in queryset:
+            tags = obj.tags
+            if tags == '[None]':
+                continue
+            num_obj += 1
+            tags_split = tags.split("|")
+            for tag in tags_split:
+                all_tags.append(tag)
+        num_tags += len(all_tags)
+
+        return(HttpResponse(str(num_tags / num_obj)))

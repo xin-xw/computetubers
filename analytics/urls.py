@@ -33,4 +33,6 @@ urlpatterns = [
     path('delete/', DeleteVideo.as_view(), name='update_video'),
 
     path('insert/', InsertVideo.as_view(), name='insert_video'),
+
+    path('average-tags/', AverageNumberOfTags.as_view(), name="average_tags")
 ]
