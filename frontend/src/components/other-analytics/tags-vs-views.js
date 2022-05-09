@@ -1,4 +1,4 @@
-import { Line, Scatter } from "react-chartjs-2";
+import { Line, Scatter, Bar } from "react-chartjs-2";
 import {
   Chart as ChartJS,
   LinearScale,
@@ -20,6 +20,8 @@ ChartJS.register(
 );
 
 const options = {
+  animation: { duration: 0 },
+  spanGaps: true, // enable for all datasets
   plugins: { legend: { display: false } },
   layout: { padding: { bottom: 100 } },
   scales: {
@@ -45,7 +47,7 @@ const options = {
   },
 };
 
-export default function BarChart() {
+export default function LineChart() {
   const axios = require("axios");
   const [Results, setSearchResults] = useState([]);
 
@@ -70,7 +72,8 @@ export default function BarChart() {
   var data = {
     datasets: [
       {
-        label: "Number of Comments (x) vs Number of Views(y)",
+        showLine: false,
+        label: "Number of tags vs. Number of views",
         data: makeLabels(),
         backgroundColor: "rgba(255, 99, 132, 1)",
       },
@@ -87,12 +90,12 @@ export default function BarChart() {
   // };
 
   function makeLabels() {
-    let comments = [Results.map((info) => info.commentCount)];
-    let views = [Results.map((info) => info.viewCount)];
+    let numberOfTags = [Results.map((info) => info.numberOfTags)];
+    let viewCount = [Results.map((info) => info.viewCount)];
 
     let arr = [];
-    for (let i = 0; i < Results.length; ++i) {
-      arr[i] = { x: comments[0][i], y: views[0][i] };
+    for (let i = 0; i < Results.length; i += 1) {
+      arr[i] = { x: numberOfTags[0][i], y: viewCount[0][i] };
     }
 
     return arr;
