@@ -190,5 +190,4 @@ export default function HomePageSearchResults({
       </Box>
     </Center>
   );
-  z;
 }

@@ -6,9 +6,11 @@ export default function HomePageIndex() {
   return (
     <Flex>
       <Stack>
-        <Box mt={15}>
-          <Heading size={"lg"}>Home</Heading>
-        </Box>
+        <Center>
+          <Box mt={15} my={5}>
+            <Heading size={"lg"}>Home</Heading>
+          </Box>
+        </Center>
         <Box>
           <AboutUs></AboutUs>
         </Box>
