@@ -76,15 +76,15 @@ export default function Chart() {
         datasets: [
             {
                 label: "Time (Hour) vs. Videos Published",
-                data: formatData(),
+                data: getHourData(),
                 backgroundColor: 'rgba(255, 99, 132, 1)'
             },
         ],
     };
 
-    function formatData() {
+    function getHourData() {
         let times = [Results.map(info => info.publishedAt)];
-        let  hourData = []
+        let hourData = []
         let hour0 = 0
         let hour1 = 0
         let hour2 = 0
