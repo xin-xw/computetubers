@@ -14,6 +14,7 @@ import InsertIndex from "./routes/insert";
 // import LikesvsViews from "./routes/likesvsviews";
 // import CommentsvsViews from "./routes/commentsvsviews";
 import BestUploadTime from "./routes/bestuploadtime";
+import BestUploadDay from "./routes/bestuploadday";
 import theme from "./theme";
 
 function App() {
@@ -31,6 +32,7 @@ function App() {
             <Route path="likes-vs-views" element={<LikesvsViews />} />
             <Route path="comments-vs-views" element={<CommentsvsViews />} /> */}
             <Route path="best-upload-time" element={<BestUploadTime />} />
+            <Route path="best-upload-day" element={<BestUploadDay />} />
           </Routes>
         </Container>
       </ChakraProvider>
