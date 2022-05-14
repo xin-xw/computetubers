@@ -94,6 +94,72 @@ export default function HomePageNavBar() {
                 >
                   Insert Video to Database
                 </Link>
+                <Link
+                  px={2}
+                  py={1}
+                  rounded={"md"}
+                  _hover={{
+                    textDecoration: "none",
+                    bg: useColorModeValue("gray.200", "gray.700"),
+                  }}
+                  as={RouterLink}
+                  to="/Dislikes-vs-views"
+                >
+                  Dislikes vs Views
+                </Link>
+                <Link
+                  px={2}
+                  py={1}
+                  rounded={"md"}
+                  _hover={{
+                    textDecoration: "none",
+                    bg: useColorModeValue("gray.200", "gray.700"),
+                  }}
+                  as={RouterLink}
+                  to="/likes-vs-views"
+                >
+                  Likes vs Views
+                </Link>
+                <Link
+                  px={2}
+                  py={1}
+                  rounded={"md"}
+                  _hover={{
+                    textDecoration: "none",
+                    bg: useColorModeValue("gray.200", "gray.700"),
+                  }}
+                  as={RouterLink}
+                  to="/comments-vs-views"
+                >
+                  Comments vs Views
+                </Link>
+                <Link
+                  px={2}
+                  py={1}
+                  rounded={"md"}
+                  _hover={{
+                    textDecoration: "none",
+                    bg: useColorModeValue("gray.200", "gray.700"),
+                  }}
+                  as={RouterLink}
+                  to="/capital-vs-views"
+                >
+                  Capital vs Views
+                </Link>
+                <Link
+                  px={2}
+                  py={1}
+                  rounded={"md"}
+                  _hover={{
+                    textDecoration: "none",
+                    bg: useColorModeValue("gray.200", "gray.700"),
+                  }}
+                  as={RouterLink}
+                  to="/Best-Upload-Time"
+                >
+                  Best Upload Day
+                </Link>
+                
               </HStack>
             </HStack>
             <Flex alignItems={"center"}>
