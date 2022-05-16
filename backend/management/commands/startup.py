@@ -24,6 +24,7 @@ class Command(BaseCommand):
                         categoryId = row[Headings.CATEGORY_ID.value],
                         trendingDate = row[Headings.TRENDING_DATE.value],
                         tags = row[Headings.TAGS.value],
+                        numberOfTags = len(row[Headings.TAGS.value].split()),
                         viewCount = row[Headings.VIEW_COUNT.value],
                         likes = row[Headings.LIKES.value],
                         dislikes = row[Headings.DISLIKES.value],

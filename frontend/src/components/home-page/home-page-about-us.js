@@ -6,6 +6,7 @@ import {
   Image,
   useMediaQuery,
   Spacer,
+  Center,
   useColorMode,
 } from "@chakra-ui/react";
 import { useState, useEffect } from "react";
@@ -24,9 +25,9 @@ export default function AboutUs() {
 
   return (
     <Stack>
-      <Flex direction={isMinWidth ? "row" : "column"} mt={isMinWidth ? 15 : 0}>
-        <Spacer></Spacer>
-      </Flex>
+      <Center>
+        <Image src="/media/team_computetubers_pfp.png"></Image>
+      </Center>
     </Stack>
   );
 }

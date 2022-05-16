@@ -151,7 +151,7 @@ export default function HomePageSearchResults({
         </Box>
         <Stack pt={3} align={"center"}>
           <Text color={"gray.500"} fontSize={"sm"} textTransform={"uppercase"}>
-            Video ID: {video_id}
+            VIDEO ID: {video_id}
           </Text>
 
           <Heading
@@ -190,5 +190,4 @@ export default function HomePageSearchResults({
       </Box>
     </Center>
   );
-  z;
 }

@@ -9,12 +9,13 @@ import HomePageIndex from "./components/home-page/home-page-index";
 import HomePageNavBar from "./components/home-page/home-page-nav";
 import SearchIndex from "./routes/search";
 import InsertIndex from "./routes/insert";
-// import DislikesvsViews from "./routes/dislikesvsviews";
-// import CapitalvsViews from "./routes/capitalvsviews";
-// import LikesvsViews from "./routes/likesvsviews";
-// import CommentsvsViews from "./routes/commentsvsviews";
 import BestUploadTime from "./routes/bestuploadtime";
 import BestUploadDay from "./routes/bestuploadday";
+import DislikesvsViews from "./routes/dislikesvsviews";
+import CapitalvsViews from "./routes/capitalvsviews";
+import LikesvsViews from "./routes/likesvsviews";
+import CommentsvsViews from "./routes/commentsvsviews";
+import OtherAnalyticsIndex from "./routes/other-analytics";
 import theme from "./theme";
 
 function App() {
@@ -27,12 +28,13 @@ function App() {
             <Route path="/" element={<HomePageIndex></HomePageIndex>} />
             <Route path="search" element={<SearchIndex></SearchIndex>} />
             <Route path="insert" element={<InsertIndex />} />
-            {/* <Route path="dislikes-vs-views" element={<DislikesvsViews />} />
+            <Route path="dislikes-vs-views" element={<DislikesvsViews />} />
             <Route path="capital-vs-views" element={<CapitalvsViews />} />
             <Route path="likes-vs-views" element={<LikesvsViews />} />
-            <Route path="comments-vs-views" element={<CommentsvsViews />} /> */}
+            <Route path="comments-vs-views" element={<CommentsvsViews />} />
             <Route path="best-upload-time" element={<BestUploadTime />} />
             <Route path="best-upload-day" element={<BestUploadDay />} />
+            <Route path="other-analytics" element={<OtherAnalyticsIndex />} />
           </Routes>
         </Container>
       </ChakraProvider>

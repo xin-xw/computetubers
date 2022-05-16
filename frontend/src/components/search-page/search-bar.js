@@ -104,7 +104,7 @@ export default function SearchBar() {
       .then(function (response) {
         let result = response.data;
         setSearchResults([...result]);
-        console.log("searchResults:", searchResults);
+        console.log("searchResults:", result);
 
         // for (let i = 0; i < 5; i++) {
         //   const new_entry = {

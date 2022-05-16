@@ -12,6 +12,7 @@ import {
   Image,
   MenuItem,
   MenuDivider,
+  Img,
   useColorMode,
   useDisclosure,
   useColorModeValue,
@@ -29,7 +30,7 @@ export default function HomePageNavBar() {
   return (
     <>
       <Center>
-        <Box w={"1000px"} px={4} mb={"15px"}>
+        <Box w={"1500px"} px={4} mb={"15px"}>
           <Flex h={16} alignItems={"center"} justifyContent={"space-between"}>
             <IconButton
               size={"md"}
@@ -40,7 +41,7 @@ export default function HomePageNavBar() {
             />
             <HStack spacing={8} alignItems={"center"}>
               <Box>
-                <Image
+                <Img
                   w={"110px"}
                   src={
                     colorMode === "dark"
@@ -48,7 +49,7 @@ export default function HomePageNavBar() {
                       : "media/computetubers_logo.png"
                   }
                   alt="logo"
-                ></Image>
+                ></Img>
               </Box>
               <HStack
                 as={"nav"}
@@ -172,7 +173,19 @@ export default function HomePageNavBar() {
                 >
                   Best Upload Day
                 </Link>
-                
+                <Link
+                  px={2}
+                  py={1}
+                  rounded={"md"}
+                  _hover={{
+                    textDecoration: "none",
+                    bg: useColorModeValue("gray.200", "gray.700"),
+                  }}
+                  as={RouterLink}
+                  to="/other-analytics"
+                >
+                  Other Analytics
+                </Link>
               </HStack>
             </HStack>
             <Flex alignItems={"center"}>
