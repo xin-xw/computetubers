@@ -66,7 +66,7 @@ export default function Chart() {
             setSearchResults([...result]);
             console.log("searchResults:", Results);
         })
-    }, [Results, Results.length, axios]);
+    }, [Results.length]);
 
     const labels = ['Sunday', 'Monday', 'Tuesday', 'Wednesday', 'Thursday', 'Friday', 'Saturday'];
 
