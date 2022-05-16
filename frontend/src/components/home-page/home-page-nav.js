@@ -156,6 +156,32 @@ export default function HomePageNavBar() {
                     bg: useColorModeValue("gray.200", "gray.700"),
                   }}
                   as={RouterLink}
+                  to="/Best-Upload-Time"
+                >
+                  Best Upload Time
+                </Link>
+                <Link
+                  px={2}
+                  py={1}
+                  rounded={"md"}
+                  _hover={{
+                    textDecoration: "none",
+                    bg: useColorModeValue("gray.200", "gray.700"),
+                  }}
+                  as={RouterLink}
+                  to="/Best-Upload-Day"
+                >
+                  Best Upload Day
+                </Link>
+                <Link
+                  px={2}
+                  py={1}
+                  rounded={"md"}
+                  _hover={{
+                    textDecoration: "none",
+                    bg: useColorModeValue("gray.200", "gray.700"),
+                  }}
+                  as={RouterLink}
                   to="/other-analytics"
                 >
                   Other Analytics

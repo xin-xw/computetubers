@@ -1,7 +1,10 @@
 {
   "dependencies": {
     "@fontsource/ibm-plex-sans": "^4.5.7",
+    "axios": "^0.27.2",
+    "chart.js": "^3.7.1",
     "moment": "^2.29.3",
+    "react-chartjs-2": "^4.1.0",
     "react-icons": "^4.3.1",
     "react-moment": "^1.1.2"
   }
