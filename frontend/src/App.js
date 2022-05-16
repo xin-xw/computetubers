@@ -1,4 +1,5 @@
 import React from "react";
+import Header from './components/home-page/Header'
 
 // Chakra
 import { ChakraProvider, Center } from "@chakra-ui/react";
