@@ -4,17 +4,16 @@ import { FaCreativeCommonsPd } from "react-icons/fa";
 
 
 export default function HomePageTrendingTags() {
+    //Sometimes this doesn't show up because of synchronization
     const axios = require("axios");
     const [Results, setSearchResults] = useState([]);
   
     useEffect(() => {
-      axios.get("http://127.0.0.1:8000/videos/")
-    .then(function (response) {
+      axios.get("http://127.0.0.1:8000/videos/").then(function (response) {
       let result = response.data;
       setSearchResults([...result]);
       console.log("searchResults:", Results);
-    })
-    }, [Results.length]);
+    })}, [Results.length])
 
     function getTags(){
       let tags = [Results.map(info => info.tags)];
@@ -42,9 +41,8 @@ export default function HomePageTrendingTags() {
 
     }
 
-    let top_trends = getTags();
-    console.log("Top_trend",top_trends)
-
+    let top_trends = [["Loading"],["Loading"],["Loading"],["Loading"],["Loading"]]
+    top_trends = getTags();
 
     return (
     <Stack spacing={0}>
@@ -54,19 +52,19 @@ export default function HomePageTrendingTags() {
     <Box border='2px' borderColor={'white'} w='750px' p={4} color='tomato'>
     <Flex h={12} alignItems={"center"} justifyContent={"space-between"}>
     <HStack spacing={8} alignItems={"center"}>
-    <Box bg='#FF0000' w='100px'rounded='lg' p={4} color='white'>
+    <Box bg='#FF0000' rounded='lg' p={4} color='white'>
     {top_trends[0][0]}
     </Box>
-    <Box bg='#FF0000' w='100px' rounded='lg'p={4} color='white'>
+    <Box bg='#FF0000' rounded='lg'p={4} color='white'>
     {top_trends[1][0]}
         </Box>
-    <Box bg='#FF0000' w='100px'rounded='lg' p={4} color='white'>
+    <Box bg='#FF0000' rounded='lg' p={4} color='white'>
     {top_trends[2][0]}
         </Box>
-    <Box bg='#FF0000' w='100px' rounded='lg'p={4} color='white'>
+    <Box bg='#FF0000' rounded='lg'p={4} color='white'>
     {top_trends[3][0]}
         </Box>
-    <Box bg='#FF0000' w='100px'rounded='lg' p={4} color='white'>
+    <Box bg='#FF0000' rounded='lg' p={4} color='white'>
     {top_trends[4][0]}
         </Box>
     </HStack>
