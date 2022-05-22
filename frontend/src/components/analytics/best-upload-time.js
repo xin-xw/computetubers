@@ -55,7 +55,7 @@ export const options = {
     }
 };
 
-export default function Chart() {
+export default function BestUploadTimeChart() {
     const axios = require("axios");
     const [Results, setSearchResults] = useState([]);
 

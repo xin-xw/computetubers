@@ -41,7 +41,7 @@ const options = {
   },
 };
 
-export default function BarChart() {
+export default function DislikevsViews() {
   const axios = require("axios");
   const [Results, setSearchResults] = useState([]);
 

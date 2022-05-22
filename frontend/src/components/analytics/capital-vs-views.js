@@ -41,7 +41,7 @@ const options = {
   },
 };
 
-export default function Chart() {
+export default function CapitalvsViewsChart() {
   const axios = require("axios");
   const [Results, setSearchResults] = useState([]);
 
