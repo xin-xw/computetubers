@@ -7,7 +7,7 @@ export default function HomePageTrendingTags() {
     //Sometimes this doesn't show up because of synchronization
     const axios = require("axios");
     const [Results, setSearchResults] = useState([]);
-  
+
     useEffect(() => {
       axios.get("http://127.0.0.1:8000/videos/").then(function (response) {
       let result = response.data;
@@ -15,7 +15,8 @@ export default function HomePageTrendingTags() {
       console.log("searchResults:", Results);
     })}, [Results.length])
 
-    function getTags(){
+    function GetTags(){
+      if (Results.length != 0){
       let tags = [Results.map(info => info.tags)];
 
       let arr = []
@@ -38,11 +39,13 @@ export default function HomePageTrendingTags() {
       
       //https://medium.com/@gmcharmy/sort-objects-in-javascript-e-c-how-to-get-sorted-values-from-an-object-142a9ae7157c
       return Object.entries(count).sort((a,b) => b[1]-a[1]).slice(1,6);
-
+    }
+    else return [["Loading"],["Loading"],["Loading"],["Loading"],["Loading"]]
     }
 
-    let top_trends = [["Loading"],["Loading"],["Loading"],["Loading"],["Loading"]]
-    top_trends = getTags();
+  //  let top_trends = [["Loading"],["Loading"],["Loading"],["Loading"],["Loading"]]
+    
+  let top_trends = GetTags();
 
     return (
     <Stack spacing={0}>
