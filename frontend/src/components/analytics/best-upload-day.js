@@ -1,5 +1,16 @@
 //inside /frontend/src/components/analytics
 import {
+    Stack,
+    VStack,
+    HStack,
+    Heading,
+    Flex,
+    Box,
+    Center,
+    Text,
+    Button,
+  } from "@chakra-ui/react";
+import {
     Chart as ChartJS,
     CategoryScale,
     LinearScale,
@@ -58,7 +69,18 @@ export const options = {
 export default function BestUploadDayChart() {
     const axios = require("axios");
     const [Results, setSearchResults] = useState([]);
-
+    const [btnClicked, setBtnClicked] = useState(false);
+    const [displayChart, setDisplayChart] = useState(false);
+    function handleFetch() {
+      const backend_avg_num_tags_url = "http://127.0.0.1:8000/average-tags/";
+      axios.get(backend_avg_num_tags_url).then(function (response) {});
+      setBtnClicked(true);
+    }
+  
+    function handleDisplayChart() {
+      setDisplayChart(true);
+    }
+    
     useEffect(() => {
         axios.get("http://127.0.0.1:8000/videos/")
         .then(function (response) {
@@ -273,5 +295,24 @@ export default function BestUploadDayChart() {
         return dayData;
     };
 
-    return <Bar data={data} />;
+    return (
+        <Flex>
+          <VStack as={"column"}>
+            <Box mt={15}>
+              <Heading size={"lg"}>
+                Here's the best day of the week to upload a youtube video based on our data
+              </Heading>
+            </Box>
+      
+            <Box my={10}>
+              <Button variant={"solid"} onClick={handleDisplayChart} my={5}>
+                <Text>Click to load the data</Text>
+              </Button>
+              {displayChart === true ? <Bar data={data}></Bar> : ""}
+            </Box>
+      
+            <Box mt={20}></Box>
+          </VStack>
+        </Flex>
+      );
 }
