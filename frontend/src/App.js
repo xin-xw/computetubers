@@ -41,6 +41,8 @@ function App() {
             <Route path="capital-vs-views" element={<CapitalvsViews />} />
             <Route path="likes-vs-views" element={<LikesvsViews />} />
             <Route path="comments-vs-views" element={<CommentsvsViews />} />
+            <Route path="best-upload-time" element={<BestUploadTime />} />
+            <Route path="best-upload-day" element={<BestUploadDay />} />
             <Route path="other-analytics" element={<OtherAnalyticsIndex />} />
           </Routes>
         {/*</Container>*/}
