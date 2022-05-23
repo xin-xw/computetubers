@@ -23,11 +23,11 @@ export default function AboutUs() {
     }
   }, [isMinWidth, desktopQuery]);
 
-  {/*return (
+  return (
     <Stack>
       <Center>
         <Image src="/media/team_computetubers_pfp.png"></Image>
       </Center>
     </Stack>
-  );*/}
+  );
 }
