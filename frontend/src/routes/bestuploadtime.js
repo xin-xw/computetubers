@@ -1,3 +1,4 @@
+//inside /frontend/src/routes/
 import { Stack, HStack, Heading, Flex, Box, Center } from "@chakra-ui/react";
 import React from "react";
 import Chart from "../components/analytics/best-upload-time";

@@ -39,7 +39,9 @@ export default function HomePageTrendingTitles() {
   return (
     <Flex>
       <Stack>
-
+      <Box mt={15} border='2px' borderColor={'white'}>
+      <Heading size={"lg"}>Trending Videos</Heading>
+       </Box>
         <Box w={["300px", "750px"]}>
           <Wrap spacingX={"100px"} justify={"center"}>
             {searchResults.length === 0

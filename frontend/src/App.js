@@ -13,6 +13,8 @@ import HomePageIndex from "./components/home-page/home-page-index";
 import HomePageNavBar from "./components/home-page/home-page-nav";
 import SearchIndex from "./routes/search";
 import InsertIndex from "./routes/insert";
+import BestUploadTime from "./routes/bestuploadtime";
+import BestUploadDay from "./routes/bestuploadday";
 import DislikesvsViews from "./routes/dislikesvsviews";
 import CapitalvsViews from "./routes/capitalvsviews";
 import LikesvsViews from "./routes/likesvsviews";

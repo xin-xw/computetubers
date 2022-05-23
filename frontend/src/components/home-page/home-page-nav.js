@@ -1,4 +1,4 @@
-import React, { ReactNode } from "react";
+import { ReactNode } from "react";
 import {
   Box,
   Flex,
@@ -104,61 +104,9 @@ export default function HomePageNavBar() {
                     bg: useColorModeValue("gray.200", "gray.700"),
                   }}
                   as={RouterLink}
-                  to="/Dislikes-vs-views"
-                >
-                  Dislikes vs Views
-                </Link>
-                <Link
-                  px={2}
-                  py={1}
-                  rounded={"md"}
-                  _hover={{
-                    textDecoration: "none",
-                    bg: useColorModeValue("gray.200", "gray.700"),
-                  }}
-                  as={RouterLink}
-                  to="/likes-vs-views"
-                >
-                  Likes vs Views
-                </Link>
-                <Link
-                  px={2}
-                  py={1}
-                  rounded={"md"}
-                  _hover={{
-                    textDecoration: "none",
-                    bg: useColorModeValue("gray.200", "gray.700"),
-                  }}
-                  as={RouterLink}
-                  to="/comments-vs-views"
-                >
-                  Comments vs Views
-                </Link>
-                <Link
-                  px={2}
-                  py={1}
-                  rounded={"md"}
-                  _hover={{
-                    textDecoration: "none",
-                    bg: useColorModeValue("gray.200", "gray.700"),
-                  }}
-                  as={RouterLink}
-                  to="/capital-vs-views"
-                >
-                  Capital vs Views
-                </Link>
-                <Link
-                  px={2}
-                  py={1}
-                  rounded={"md"}
-                  _hover={{
-                    textDecoration: "none",
-                    bg: useColorModeValue("gray.200", "gray.700"),
-                  }}
-                  as={RouterLink}
                   to="/other-analytics"
                 >
-                  Other Analytics
+                  Analytics
                 </Link>
               </HStack>
             </HStack>
