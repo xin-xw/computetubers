@@ -43,3 +43,13 @@
     flex: 1;
     border: none;
 }
+
+.header_menu {
+    display: flex;
+    align-items: center;
+}
+
+.header_left {
+    display: flex;
+    align-items: center;
+}

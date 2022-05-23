@@ -1,5 +1,5 @@
-.App {
-  text-align: center;
+.app_page {
+  display: flex;
 }
 
 .App-logo {

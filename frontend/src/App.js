@@ -1,5 +1,8 @@
 import React from "react";
 import Header from './components/home-page/Header'
+import Sidebar from './components/home-page/Sidebar'
+import RecommendedVideos from './components/home-page/RecommendedVideos'
+import "./App.css"
 
 // Chakra
 import { ChakraProvider, Center } from "@chakra-ui/react";
@@ -21,19 +24,26 @@ function App() {
   return (
     <BrowserRouter>
       <ChakraProvider theme={theme}>
-        <HomePageNavBar></HomePageNavBar>
-        <Container>
+        {/*<HomePageNavBar></HomePageNavBar>
+        <Container>*/}
+        <div className="App">
+          <Header />
+          <div className="app_page">
+            <Sidebar />
+            <RecommendedVideos />
+          </div>
+        </div>
           <Routes>
             <Route path="/" element={<HomePageIndex></HomePageIndex>} />
             <Route path="search" element={<SearchIndex></SearchIndex>} />
             <Route path="insert" element={<InsertIndex />} />
-            {/* <Route path="dislikes-vs-views" element={<DislikesvsViews />} />
+            <Route path="dislikes-vs-views" element={<DislikesvsViews />} />
             <Route path="capital-vs-views" element={<CapitalvsViews />} />
             <Route path="likes-vs-views" element={<LikesvsViews />} />
-            <Route path="comments-vs-views" element={<CommentsvsViews />} /> */}
+            <Route path="comments-vs-views" element={<CommentsvsViews />} />
             <Route path="other-analytics" element={<OtherAnalyticsIndex />} />
           </Routes>
-        </Container>
+        {/*</Container>*/}
       </ChakraProvider>
     </BrowserRouter>
   );

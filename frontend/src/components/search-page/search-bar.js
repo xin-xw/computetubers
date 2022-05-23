@@ -164,26 +164,6 @@ export default function SearchBar() {
               )}
             </Box>
           </Center>
-          <Wrap spacingX={"100px"} justify={"center"}>
-            {searchResults.length === 0
-              ? ""
-              : searchResults.map((info) => (
-                  <WrapItem>
-                    <HomePageSearchResults
-                      key={info.id}
-                      video_id={info.videoId}
-                      video_title={info.title}
-                      channel_title={info.channelTitle}
-                      video_likes={info.likes}
-                      video_dislikes={info.dislikes}
-                      video_view_count={info.viewCount}
-                      video_trending_date={info.trendingDate}
-                      video_thumbnail={info.thumbnailLink}
-                      video_comment_count={info.commentCount}
-                    ></HomePageSearchResults>
-                  </WrapItem>
-                ))}
-          </Wrap>
         </Box>
       </Stack>
     </Flex>
