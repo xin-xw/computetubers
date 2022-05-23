@@ -1,4 +1,16 @@
 
+
+import {
+  Stack,
+  VStack,
+  HStack,
+  Heading,
+  Flex,
+  Box,
+  Center,
+  Text,
+  Button,
+} from "@chakra-ui/react";
 import { Line, Scatter } from 'react-chartjs-2';
 import {
   Chart as ChartJS,
@@ -41,9 +53,20 @@ const options = {
   },
 };
 
-export default function BarChart() {
+export default function DislikevsViews() {
   const axios = require("axios");
   const [Results, setSearchResults] = useState([]);
+  const [btnClicked, setBtnClicked] = useState(false);
+  const [displayChart, setDisplayChart] = useState(false);
+  function handleFetch() {
+    const backend_avg_num_tags_url = "http://127.0.0.1:8000/average-tags/";
+    axios.get(backend_avg_num_tags_url).then(function (response) {});
+    setBtnClicked(true);
+  }
+
+  function handleDisplayChart() {
+    setDisplayChart(true);
+  }
 
   useEffect(() => {
     axios.get("http://127.0.0.1:8000/videos/")
@@ -99,5 +122,24 @@ export default function BarChart() {
       return arr;
     };
 
-  return <Scatter data={data} />;
+      return (
+      <Flex>
+        <VStack as={"column"}>
+          <Box mt={15}>
+            <Heading size={"lg"}>
+              Here's the relationship between the amount of dislikes versus viewcount
+            </Heading>
+          </Box>
+    
+          <Box my={10}>
+            <Button variant={"solid"} onClick={handleDisplayChart} my={5}>
+              <Text>Click to load the data</Text>
+            </Button>
+            {displayChart === true ? <Scatter data={data}></Scatter> : ""}
+          </Box>
+    
+          <Box mt={20}></Box>
+        </VStack>
+      </Flex>
+    );
 }

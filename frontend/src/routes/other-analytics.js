@@ -1,5 +1,4 @@
 import React from "react";
-
 // Chakra
 import {
   Stack,
@@ -15,6 +14,12 @@ import {
 import { useState, useEffect } from "react";
 import OtherAnalyticsAverageTags from "../components/other-analytics/average-tags";
 import TagsVsViewIndex from "../components/other-analytics/tags-vs-view-index";
+import CapitalvsViewsChart from "../components/analytics/capital-vs-views";
+import LikesvsViews from "../components/analytics/likes-vs-views";
+import DislikevsViews from "../components/analytics/dislikes-vs-views";
+import CommentsvsViewsChart from "../components/analytics/comments-vs-views";
+import BestUploadTimeChart from "../components/analytics/best-upload-time";
+import BestUploadDayChart from "../components/analytics/best-upload-day";
 
 function OtherAnalyticsIndex() {
   const { colorMode } = useColorMode();
@@ -35,6 +40,22 @@ function OtherAnalyticsIndex() {
       <Box>
         <TagsVsViewIndex></TagsVsViewIndex>
       </Box>
+      <Box>
+      <CapitalvsViewsChart></CapitalvsViewsChart>
+      </Box>
+      <Box>
+        <LikesvsViews></LikesvsViews>
+        </Box>
+        <Box>
+        <DislikevsViews></DislikevsViews>
+        </Box>
+        <Box>
+        <CommentsvsViewsChart></CommentsvsViewsChart>
+        </Box>
+        <BestUploadTimeChart></BestUploadTimeChart>
+        <Box>
+        <BestUploadDayChart></BestUploadDayChart>
+        </Box>
     </Stack>
   );
 }
